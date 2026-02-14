@@ -1,2 +1,280 @@
-# valentine-praise
-Val
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>For Praise Perry ❤️</title>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --rose: #ff4d6d;
+            --dark-pink: #800e13;
+            --glass: rgba(255, 255, 255, 0.85);
+            --shadow: 0 8px 32px rgba(255, 77, 109, 0.3);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+
+        body {
+            /* Premium Peach-Pink Gradient */
+            background: linear-gradient(45deg, #ff9a9e 0%, #fad0c4 99%, #fad0c4 100%);
+            font-family: 'Poppins', sans-serif;
+            min-height: 100vh;
+            overflow-x: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        /* --- Rose Animations --- */
+        .rose-petal {
+            position: fixed;
+            top: -50px;
+            pointer-events: none;
+            z-index: 9999;
+            animation: fall linear forwards;
+        }
+
+        @keyframes fall {
+            0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+            100% { transform: translateY(110vh) rotate(360deg); opacity: 0; }
+        }
+
+        /* --- Content Layout --- */
+        .hero {
+            height: 45vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .hero h1 {
+            font-family: 'Great Vibes', cursive;
+            font-size: clamp(3.5rem, 15vw, 6rem);
+            color: white;
+            text-shadow: 2px 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .hero p { color: white; letter-spacing: 5px; font-size: 0.9rem; font-weight: 600; text-transform: uppercase; }
+
+        .glass-card {
+            background: var(--glass);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border-radius: 35px;
+            padding: 40px 25px;
+            width: 92%;
+            max-width: 450px;
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            box-shadow: var(--shadow);
+            text-align: center;
+            margin-bottom: 120px;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        /* --- Interactive Elements --- */
+        .btn-group {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 35px;
+            min-height: 60px;
+        }
+
+        .btn {
+            padding: 16px 42px;
+            border-radius: 50px;
+            border: none;
+            font-weight: 600;
+            cursor: pointer;
+            transition: 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            font-size: 1rem;
+        }
+
+        .btn-yes { background: var(--rose); color: white; box-shadow: 0 10px 20px rgba(255, 77, 109, 0.4); }
+        .btn-no { background: white; color: #444; position: relative; }
+
+        /* --- Sound Bar --- */
+        .music-bar {
+            position: fixed;
+            bottom: 25px;
+            width: 88%;
+            max-width: 380px;
+            background: rgba(255, 255, 255, 0.95);
+            padding: 15px 20px;
+            border-radius: 25px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+            z-index: 1000;
+        }
+
+        .music-info { display: flex; align-items: center; gap: 12px; }
+        .music-disc { font-size: 1.8rem; animation: rotate 4s linear infinite; animation-play-state: paused; }
+        .track-text b { font-size: 0.85rem; display: block; color: var(--rose); }
+        .track-text span { font-size: 0.75rem; color: #666; }
+
+        .play-btn {
+            background: var(--rose);
+            color: white;
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* --- Popup Logic --- */
+        #popup {
+            display: none;
+            position: fixed;
+            top: 50%; left: 50%; transform: translate(-50%, -50%);
+            width: 88%; max-width: 420px;
+            background: white; padding: 45px 25px; border-radius: 40px;
+            box-shadow: 0 25px 100px rgba(0,0,0,0.4); z-index: 10000; text-align: center;
+            animation: popIn 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .overlay {
+            display: none;
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.4); backdrop-filter: blur(8px); z-index: 9999;
+        }
+
+        @keyframes rotate { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+        @keyframes fadeInUp { from { opacity: 0; transform: translateY(40px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes popIn { from { transform: translate(-50%, -50%) scale(0.6); opacity: 0; } to { transform: translate(-50%, -50%) scale(1); opacity: 1; } }
+
+    </style>
+</head>
+<body>
+
+    <div class="hero">
+        <p>A message for</p>
+        <h1>Praise Perry</h1>
+        <p>From Fredrick</p>
+    </div>
+
+    <div class="glass-card">
+        <h2 style="font-family: 'Great Vibes'; font-size: 3.2rem; color: var(--rose);">My Love...</h2>
+        <p style="margin: 20px 0; line-height: 1.6;">You are the most beautiful person I know. Will you make me the happiest man by being my Valentine?</p>
+        
+        <div class="btn-group">
+            <button class="btn btn-yes" onclick="celebrate()">YES! ❤️</button>
+            <button class="btn btn-no" id="noBtn" onmouseover="dodge()">No</button>
+        </div>
+    </div>
+
+    <div class="music-bar">
+        <div class="music-info">
+            <div class="music-disc" id="disc">🌹</div>
+            <div class="track-text">
+                <b>Happy Valentine's Day</b>
+                <span>To: Praise | From: Fredrick</span>
+            </div>
+        </div>
+        <button class="play-btn" id="playBtn" onclick="toggleMusic()">▶</button>
+        <audio id="audioTrack" loop>
+            <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3" type="audio/mpeg">
+        </audio>
+    </div>
+
+    <div class="overlay" id="overlay"></div>
+    <div id="popup">
+        <h2 style="font-family: 'Great Vibes'; font-size: 4rem; color: var(--rose); margin-bottom: 10px;">Yay! ❤️</h2>
+        <p style="font-size: 1.1rem; margin-bottom: 25px;">Praise, you just made my day. Fredrick loves you so much!</p>
+        <button class="btn btn-yes" style="width: 100%;" onclick="closeAll()">I Love You Too!</button>
+    </div>
+
+    <script>
+        let noCount = 0;
+        const formspreeURL = "https://formspree.io/f/xaqdoyoz";
+        const audio = document.getElementById('audioTrack');
+        const disc = document.getElementById('disc');
+        const playBtn = document.getElementById('playBtn');
+
+        // Continuous falling roses
+        function createRose(isExplosion = false) {
+            const rose = document.createElement('div');
+            rose.innerHTML = '🌹';
+            rose.className = 'rose-petal';
+            rose.style.left = Math.random() * 100 + 'vw';
+            rose.style.fontSize = (Math.random() * 20 + 20) + 'px';
+            rose.style.animationDuration = (Math.random() * 3 + 2.5) + 's';
+            if (isExplosion) {
+                rose.style.left = (Math.random() * 90 + 5) + 'vw';
+                rose.style.top = (Math.random() * -20) + 'vh';
+                rose.style.fontSize = '35px';
+            }
+            document.body.appendChild(rose);
+            setTimeout(() => rose.remove(), 5000);
+        }
+        setInterval(() => createRose(false), 700);
+
+        // No Button Dodge logic
+        function dodge() {
+            noCount++;
+            const btn = document.getElementById('noBtn');
+            const x = Math.random() * (window.innerWidth - btn.offsetWidth);
+            const y = Math.random() * (window.innerHeight - btn.offsetHeight);
+            btn.style.position = 'fixed';
+            btn.style.left = x + 'px';
+            btn.style.top = y + 'px';
+        }
+
+        // Music toggle
+        function toggleMusic() {
+            if (audio.paused) {
+                audio.play();
+                playBtn.innerText = '⏸';
+                disc.style.animationPlayState = 'running';
+            } else {
+                audio.pause();
+                playBtn.innerText = '▶';
+                disc.style.animationPlayState = 'paused';
+            }
+        }
+
+        // YES CELEBRATION
+        function celebrate() {
+            // 1. Play "Happy Valentine's Day My Love" track
+            audio.play();
+            playBtn.innerText = '⏸';
+            disc.style.animationPlayState = 'running';
+
+            // 2. ROSE EXPLOSION (Many flowers flowing)
+            for(let i = 0; i < 80; i++) {
+                setTimeout(() => createRose(true), i * 40);
+            }
+
+            // 3. Show Popup
+            document.getElementById('overlay').style.display = 'block';
+            document.getElementById('popup').style.display = 'block';
+
+            // 4. Send Email to Fredrick
+            fetch(formspreeURL, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    Praise_Says: "YES! ❤️",
+                    No_Attempts: noCount,
+                    Message: "Fredrick, she accepted your Valentine's invite!"
+                })
+            });
+        }
+
+        function closeAll() {
+            document.getElementById('overlay').style.display = 'none';
+            document.getElementById('popup').style.display = 'none';
+        }
+    </script>
+</body>
+</html>
